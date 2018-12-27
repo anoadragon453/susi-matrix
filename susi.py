@@ -35,7 +35,7 @@ def message_received(event):
     if content["msgtype"] == "m.text":
         if content["body"].startswith(botname):
             query = content["body"][5:]
-            rooms[event["room_id"]].send_text(susi_submit(query))
+            rooms[event["room_id"]].send_notice(susi_submit(query))
 
 # Listen for invites and join room
 client.add_invite_listener(invite_received)
